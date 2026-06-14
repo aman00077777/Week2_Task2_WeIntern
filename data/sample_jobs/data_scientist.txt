@@ -1,0 +1,18 @@
+Position: Data Scientist (Machine Learning)
+Location: Hybrid (New York)
+Experience Required: 3+ years
+
+About the Role:
+We are seeking a Data Scientist to help us build predictive models, analyze complex datasets, and deploy machine learning pipelines to production. You will work closely with product and engineering teams to turn data insights into actionable features that drive customer engagement and optimization.
+
+Required Skills:
+- Programming Languages: Python, SQL, R
+- ML Frameworks: Scikit-learn, TensorFlow, PyTorch, Keras
+- Data Libraries: Pandas, NumPy, Scipy, Matplotlib, Seaborn
+- NLP & Stats: NLP, NLTK, spaCy, Regression, Clustering, Classification, Statistics
+- Cloud & Data Warehouses: GCP, BigQuery, AWS, Git
+
+Preferred Qualifications:
+- M.S. or Ph.D. in Computer Science, Statistics, or a related quantitative field
+- Experience with Apache Spark or Dataproc
+- Familiarity with MLOps tools (MLflow, Kubeflow)

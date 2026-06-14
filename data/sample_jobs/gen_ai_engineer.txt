@@ -1,0 +1,18 @@
+Position: Generative AI Engineer (Large Language Models)
+Location: Remote (US/Canada)
+Experience Required: 3+ years
+
+About the Role:
+We are looking for a Generative AI Engineer to design, build, and optimize LLM-powered applications. You will be responsible for creating retrieval-augmented generation (RAG) architectures, fine-tuning open-source models, designing prompt flows, and orchestrating multi-agent systems.
+
+Required Skills:
+- Frameworks: LangChain, LlamaIndex, LangGraph, HuggingFace, OpenAI
+- Database & Retrieval: Vector Databases, Pinecone, Chroma, Milvus, Semantic Search, RAG
+- AI Paradigms: LLM, GPT-4, Claude, Prompt Engineering, Fine-tuning, RLHF, Generative AI, Agentic Workflows
+- Core Stack: Python, FastAPI, Git, Docker, MLOps
+
+Key Responsibilities:
+- Design robust agentic systems using LangGraph
+- Optimize RAG search pipeline using semantic search and hybrid rerankers
+- Set up evaluation frameworks for LLM generation quality
+- Fine-tune open-source models like Llama-3 using PyTorch

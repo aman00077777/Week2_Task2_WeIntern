@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screening AI Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="glow-bg-2"></div>
+    
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-wand-magic-sparkles logo-icon"></i>
+                <h1>Resume Screening <span>AI</span></h1>
+            </div>
+            <div class="system-status">
+                <span class="status-dot"></span>
+                <span>System Online (v1.0)</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <div class="grid-layout">
+                <!-- Left Input Panel -->
+                <section class="panel glass-panel input-panel">
+                    <div class="panel-header">
+                        <i class="fa-solid fa-file-invoice icon-header"></i>
+                        <h2>Job Requirements</h2>
+                    </div>
+                    
+                    <!-- Preloaded templates -->
+                    <div class="form-group">
+                        <label for="template-select">Select Job Template</label>
+                        <div class="select-wrapper">
+                            <select id="template-select">
+                                <option value="" disabled selected>-- Select a template --</option>
+                                {% for name, text in job_templates.items() %}
+                                    <option value="{{ name }}">{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job-description">Job Description Text</label>
+                        <textarea id="job-description" placeholder="Paste the full job description or select a template above..."></textarea>
+                    </div>
+
+                    <!-- Invisible template texts for JS lookup -->
+                    <div id="template-contents" style="display: none;">
+                        {% for name, text in job_templates.items() %}
+                            <div id="template-{{ name|replace(' ', '-') }}">{{ text }}</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <!-- Right Upload Panel -->
+                <section class="panel glass-panel upload-panel">
+                    <div class="panel-header">
+                        <i class="fa-solid fa-users-viewfinder icon-header"></i>
+                        <h2>Candidates & Resumes</h2>
+                    </div>
+
+                    <!-- Upload Form -->
+                    <form id="analyze-form" enctype="multipart/form-data">
+                        <!-- File Drop Zone -->
+                        <div class="drop-zone" id="drop-zone">
+                            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                            <p class="drop-text">Drag & drop candidate resumes here</p>
+                            <p class="drop-subtext">Supports PDF and TXT formats</p>
+                            <span class="browse-btn">Browse Files</span>
+                            <input type="file" id="resume-files" name="resumes" multiple accept=".pdf,.txt" style="display: none;">
+                        </div>
+
+                        <!-- Selected files list -->
+                        <div id="selected-files-container" class="selected-files" style="display: none;">
+                            <h3>Selected Files</h3>
+                            <ul id="file-list"></ul>
+                        </div>
+
+                        <!-- Quick load sample resumes -->
+                        <div class="sample-resumes-selector">
+                            <label>Quick Load Sample Resumes</label>
+                            <div class="checkbox-grid">
+                                {% for sample in sample_resumes %}
+                                    <label class="sample-checkbox-card">
+                                        <input type="checkbox" name="selected_samples" value="{{ sample.filename }}" checked>
+                                        <div class="checkbox-indicator">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <div class="sample-details">
+                                            <span class="sample-name">{{ sample.name }}</span>
+                                            <span class="sample-format"><i class="fa-regular fa-file"></i> {{ sample.filename.split('.')[-1].upper() }}</span>
+                                        </div>
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <span class="btn-text">Screen & Rank Candidates</span>
+                            <span class="btn-loader" style="display: none;"><i class="fa-solid fa-circle-notch fa-spin"></i> Analyzing...</span>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Algorithm Explanation & Legend -->
+            <section class="panel glass-panel legend-panel">
+                <div class="legend-content">
+                    <div class="legend-title">
+                        <i class="fa-solid fa-gears legend-icon"></i>
+                        <h3>Scoring Algorithm Breakdown</h3>
+                    </div>
+                    <div class="legend-grid">
+                        <div class="legend-item">
+                            <span class="legend-pct pct-blue">50%</span>
+                            <div class="legend-desc">
+                                <strong>TF-IDF Cosine Similarity</strong>
+                                <span>Measures overall lexical match, context, and terminology overlap.</span>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-pct pct-purple">40%</span>
+                            <div class="legend-desc">
+                                <strong>Target Skills Match</strong>
+                                <span>Explicit count of requested skills successfully extracted from candidate resume.</span>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-pct pct-green">10%</span>
+                            <div class="legend-desc">
+                                <strong>Experience Fit</strong>
+                                <span>Validates years of experience match against job specification requirements.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section (Dynamic) -->
+            <section class="panel glass-panel results-panel" id="results-panel" style="display: none;">
+                <div class="results-header">
+                    <div class="results-title">
+                        <i class="fa-solid fa-ranking-star results-icon"></i>
+                        <h2>Ranked Candidates</h2>
+                    </div>
+                    <a href="/download-report" class="download-btn" id="download-report-btn">
+                        <i class="fa-solid fa-file-csv"></i> Download CSV Report
+                    </a>
+                </div>
+
+                <div class="candidates-list" id="candidates-list">
+                    <!-- Dynamic rendering of candidates -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Designed and Built by Antigravity AI Assistant | DeepMind Advanced Agentic Coding</p>
+        </footer>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+Position: Cloud DevOps Engineer
+Location: Remote
+Experience Required: 4+ years
+
+About the Role:
+We are looking for a DevOps Engineer to automate and streamline our operations and processes. You will build and maintain tools for deployment, monitoring, and operations, and troubleshoot and resolve issues in our dev, test, and production environments.
+
+Required Skills:
+- Cloud Platforms: AWS, Azure, GCP
+- Containerization: Docker, Kubernetes
+- IaC (Infrastructure as Code): Terraform, Ansible, CloudFormation
+- CI/CD & Version Control: Jenkins, GitHub Actions, Git, GitLab CI
+- Scripting & Languages: Python, Bash, Shell
+- Monitoring: Prometheus, Grafana, ELK Stack
+
+Key Responsibilities:
+- Manage Kubernetes clusters in AWS (EKS)
+- Implement secure CI/CD pipelines
+- Maintain infrastructure using Terraform
+- Set up logging and alerting mechanisms

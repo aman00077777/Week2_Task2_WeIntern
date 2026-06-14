@@ -1,0 +1,18 @@
+Position: Senior Python Developer
+Location: Remote
+Experience Required: 5+ years
+
+About the Role:
+We are looking for a Senior Python Developer to join our backend engineering team. You will design, build, and maintain efficient, reusable, and reliable Python code. You will collaborate with cross-functional teams to integrate user-facing elements with server-side logic and ensure high performance and responsiveness of applications.
+
+Required Skills:
+- Programming Languages: Python
+- Frameworks: Django, Flask, FastAPI
+- Databases: PostgreSQL, MongoDB, Redis
+- Cloud & DevOps: AWS, Docker, Git, CI/CD
+- Core Concepts: REST APIs, Microservices, Unit Testing, System Design, Data Structures
+
+Nice to Have:
+- Experience with Kubernetes or Terraform
+- Knowledge of Javascript or React
+- Understanding of agile methodologies

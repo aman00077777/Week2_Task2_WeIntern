@@ -1,0 +1,22 @@
+Bob Johnson
+Email: bob.johnson@email.com | Phone: +1 (555) 034-5678 | Location: Seattle, WA
+
+Professional Summary:
+DevOps Engineer with 5 years of experience automating infrastructure, configuring CI/CD pipelines, and managing containerized applications in cloud environments. Dedicated to maximizing system uptime and release frequency.
+
+Technical Skills:
+AWS, GCP, Docker, Kubernetes, Terraform, CI/CD, Git, GitHub Actions, Python, Bash, Prometheus, Grafana, Linux Systems
+
+Professional Experience:
+DevOps Engineer | CloudOps Co. (2022 - Present)
+- Designed and maintained infrastructure as code (IaC) using Terraform across multi-region AWS environments.
+- Implemented automated CI/CD pipelines with GitHub Actions, reducing deployment time by 50%.
+- Managed Kubernetes (EKS) clusters and configured Docker containers for microservices.
+- Set up monitoring and alerting dashboards using Prometheus and Grafana.
+
+Systems Administrator | NetWorks Solutions (2021 - 2022)
+- Managed Linux servers, user permissions, and security patches.
+- Wrote Bash and Python scripts to automate routine database backups and log monitoring tasks.
+
+Education:
+Bachelor of Technology in Information Technology | University of Washington (2021)

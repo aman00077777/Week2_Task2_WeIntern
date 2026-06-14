@@ -1,0 +1,18 @@
+Position: Artificial Intelligence Engineer
+Location: Remote
+Experience Required: 4+ years
+
+About the Role:
+We are seeking an AI Engineer to design and implement machine learning models, build high-throughput data processing pipelines, and deploy models into production. You will work on NLP, computer vision, and predictive analytics challenges to create intelligent core services.
+
+Required Skills:
+- Programming Languages: Python, SQL
+- Machine Learning Frameworks: PyTorch, TensorFlow, Scikit-learn
+- Data Science Libraries: Pandas, NumPy, Scipy
+- Core AI Concepts: NLP, Computer Vision, Neural Networks, Deep Learning, Statistics, Machine Learning
+- DevOps & Tools: Git, Docker, MLOps, MLflow, AWS
+
+Preferred Qualifications:
+- M.S. in Computer Science, Data Science, or related quantitative field
+- Experience scaling models on Kubernetes
+- Strong software engineering foundation (OOP, system design, data structures)
